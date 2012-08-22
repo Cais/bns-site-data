@@ -48,12 +48,12 @@ License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 function BNS_Site_Data_Widget() {
 
     $data = array();
-    $data['posts'] = wp_count_posts( 'post' )->publish;
-    $data['pages'] = wp_count_posts( 'page' )->publish;
-    $data['categories'] = wp_count_terms( 'category' );
-    $data['tags'] = wp_count_terms( 'post_tag' );
-    $data['comments'] = wp_count_comments()->approved;
-    $data['attachments'] = wp_count_posts( 'attachment' )->inherit;
+    $data['posts']          = wp_count_posts( 'post' )->publish;
+    $data['pages']          = wp_count_posts( 'page' )->publish;
+    $data['categories']     = wp_count_terms( 'category' );
+    $data['tags']           = wp_count_terms( 'post_tag' );
+    $data['comments']       = wp_count_comments()->approved;
+    $data['attachments']    = wp_count_posts( 'attachment' )->inherit;
 
     $output = "\n";
 
