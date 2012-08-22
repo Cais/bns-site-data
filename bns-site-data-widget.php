@@ -45,7 +45,34 @@ License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  * http://www.gnu.org/licenses/gpl-2.0.html
  */
 
-function BNS_Site_Data_Widget() {
+
+/** Add function to the widgets_init hook. */
+add_action( 'widgets_init', 'load_BNS_Site_Data_Widget' );
+
+/** Function that registers our widget. */
+function load_BNS_Site_Data_Widget() {
+    register_widget( 'BNS_Site_Data_Widget' );
+}
+
+
+    /** Start Class Extension */
+class BNS_Site_Data_Widget extends WP_Widget {
+
+    /** Create Widget */
+    function BNS_Site_Data_Widget() {
+        /** Widget settings. */
+        $widget_ops = array( 'classname' => 'bns-site-data', 'description' => __( 'Displays some site stuff.' ) );
+        /** Widget control settings. */
+        $control_ops = array( 'width' => 200, 'id_base' => 'bns-site-data' );
+        /** Create the widget. */
+        $this->WP_Widget( 'bns-site-data', 'BNS Site Data Widget', $widget_ops, $control_ops );
+    }
+    /** End: Create Widget */
+
+}
+
+// function BNS_Site_Data_Widget() {
+function widget() {
 
     $data = array();
     $data['Posts']          = wp_count_posts( 'post' )->publish;
@@ -64,4 +91,6 @@ function BNS_Site_Data_Widget() {
 
     return '<h2>Site Details</h2>' . '<pre>' . esc_html( $output ) . '</pre>';
 }
-add_shortcode( 'bns_site_data_widget', 'BNS_Site_Data_Widget' );
+
+
+// add_shortcode( 'bns_site_data_widget', 'BNS_Site_Data_Widget' );
