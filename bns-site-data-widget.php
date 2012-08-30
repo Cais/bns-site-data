@@ -105,6 +105,7 @@ class BNS_Site_Data_Widget extends WP_Widget {
 
         /** Widget title */
         if ( $title )
+            /** @noinspection PhpUndefinedVariableInspection - IDE ONLY comment */
             echo $before_title . $title . $after_title;
 
         /** Choose which details are shown based on widget settings. */
@@ -241,15 +242,15 @@ class BNS_Site_Data_Widget extends WP_Widget {
 /** Start Shortcode */
 function BNS_Site_Data_Widget_Shortcode() {
 
-    /** @var $data - initialized as empty array */
-    $data = array();
-    /** Add details to array */
-    $data['Posts']          = wp_count_posts( 'post' )->publish;
-    $data['Pages']          = wp_count_posts( 'page' )->publish;
-    $data['Categories']     = wp_count_terms( 'category' );
-    $data['Tags']           = wp_count_terms( 'post_tag' );
-    $data['Comments']       = wp_count_comments()->approved;
-    $data['Attachments']    = wp_count_posts( 'attachment' )->inherit;
+    /** @var $data - array of site details */
+    $data = array(
+        'posts'       => wp_count_posts( 'post' )->publish,
+        'pages'       => wp_count_posts( 'page' )->publish,
+        'categories'  => wp_count_terms( 'category' ),
+        'tags'        => wp_count_terms( 'post_tag' ),
+        'comments'    => wp_count_comments()->approved,
+        'attachments' => wp_count_posts( 'attachment' )->inherit,
+    );
 
     /** @var $output - initialize output with a new line */
     $output = "\n";
