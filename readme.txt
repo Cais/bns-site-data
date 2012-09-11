@@ -1,0 +1,72 @@
+=== BNS Site Data Widget ===
+Contributors: cais
+Donate link: http://buynowshop.com
+Tags: widget-only
+Requires at least: 2.8
+Tested up to: 3.4.2
+Stable tag: 0.1
+License: GNU General Public License v2
+License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+
+Plugin with multi-widget functionality that displays stuff ...
+
+== Description ==
+
+Plugin with multi-widget functionality that displays stuff ... and a lot more things as well.
+
+== Installation ==
+
+This section describes how to install the plugin and get it working.
+
+Read this article for further assistance: http://wpfirstaid.com/2009/12/plugin-installation/
+
+----
+= Shortcode: bns_site_data =
+Parameters are very similar to the plugin:
+
+* 'posts'       => true,
+* 'pages'       => true,
+* 'categories'  => true,
+* 'tags'        => true,
+* 'comments'    => true,
+* 'attachments' => true,
+
+NB: Use the shortcode at your own risk!
+
+== Frequently Asked Questions ==
+
+= Can I use this in more than one widget area? =
+A: Yes, this plugin has been made for multi-widget compatibility. Each instance of the widget will display, if wanted, differently than every other instance of the widget.
+
+== Screenshots ==
+1. The options panel as it appears in default.
+
+== Other Notes ==
+* Copyright 2012  Edward Caissie  (email : edward.caissie@gmail.com)
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License version 2,
+  as published by the Free Software Foundation.
+
+  You may NOT assume that you can use any other version of the GPL.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program; if not, write to the Free Software
+  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+
+  The license for this software can also likely be found here:
+  http://www.gnu.org/licenses/gpl-2.0.html
+
+* Please note, support may be available on the WordPress Support forums; but, it may be faster to visit my site instead and leave a comment with the issue you are experiencing.
+
+== Upgrade Notice ==
+Please stay current with your WordPress installation, your active theme, and your plugins.
+
+== Changelog ==
+= 0.1 =
+* Initial release

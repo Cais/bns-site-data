@@ -266,29 +266,68 @@ class BNS_Site_Data_Widget extends WP_Widget {
 }
 /** End: Class Extension */
 
+/**
+ * BNS Site Data Shortcode
+ * Adds shortcode functionality by using the PHP output buffer methods to
+ * capture `the_widget` output and return the data to be displayed via the use
+ * of the `wpfa_sample` shortcode.
+ *
+ * @package BNS_Site_Data
+ * @since   0.1
+ *
+ * @uses    the_widget
+ * @uses    shortcode_atts
+ *
+ * @internal used with add_shortcode
+ */
+function BNS_Site_Data_Widget_Shortcode( $atts ) {
 
-/** Start Shortcode */
-function BNS_Site_Data_Widget_Shortcode() {
+    /** Start output buffer capture */
+    ob_start(); ?>
+        <div class="bns-site-data-shortcode">
+            <?php
+            /**
+             * Use 'the_widget' as the main output function to be captured
+             * @link http://codex.wordpress.org/Function_Reference/the_widget
+             */
+            the_widget(
+            /** The widget name as defined in the class extension */
+                'BNS_Site_Data_Widget',
+                /**
+                 * The default options (as the shortcode attributes array) to be
+                 * used with the widget
+                 */
+                $instance = shortcode_atts(
+                    array(
+                        /** Set title to null for aesthetic reasons */
+                        'posts'       => true,
+                        'pages'       => true,
+                        'categories'  => true,
+                        'tags'        => true,
+                        'comments'    => true,
+                        'attachments' => true,
+                    ),
+                    $atts
+                ),
+                /**
+                 * Override the widget arguments and set to null. This will set the
+                 * theme related widget definitions to null for aesthetic purposes.
+                 */
+                $args = array (
+                    'before_widget'   => '',
+                    'before_title'    => '',
+                    'after_title'     => '',
+                    'after_widget'    => ''
+                ) ); ?>
+        </div><!-- .bns-site-data-shortcode -->
+    <?php
+    /** End the output buffer capture and save captured data into variable */
+    $bns_site_data_output = ob_get_contents();
+    /** Stop output buffer capture and clear properly */
+    ob_end_clean();
 
-    /** @var $data - array of site details */
-    $data = array(
-        'posts'       => wp_count_posts( 'post' )->publish,
-        'pages'       => wp_count_posts( 'page' )->publish,
-        'categories'  => wp_count_terms( 'category' ),
-        'tags'        => wp_count_terms( 'post_tag' ),
-        'comments'    => wp_count_comments()->approved,
-        'attachments' => wp_count_posts( 'attachment' )->inherit,
-    );
-
-    /** @var $output - initialize output with a new line */
-    $output = "\n";
-
-    /** Append to output each of the site details */
-    foreach ( $data as $label => $value )
-        $output .= "\t" . number_format( $value ). " $label\n";
-
-    /** Add a title and return the output for use in the shortcode */
-    return '<h2>Site Details</h2>' . '<pre>' . $output . '</pre>';
+    /** Return the output buffer data for use with add_shortcode output */
+    return $bns_site_data_output;
 }
-add_shortcode( 'bns_site_data_widget', 'BNS_Site_Data_Widget_Shortcode' );
+add_shortcode( 'bns_site_data', 'BNS_Site_Data_Widget_Shortcode' );
 /** End: Shortcode */
