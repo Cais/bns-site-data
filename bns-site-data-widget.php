@@ -54,6 +54,34 @@ function load_BNS_Site_Data_Widget() {
     register_widget( 'BNS_Site_Data_Widget' );
 }
 
+/**
+ * Enqueue Plugin Scripts and Styles
+ * Adds plugin stylesheet and allows for custom stylesheet to be added by
+ * end-user. These stylesheets will only affect public facing output.
+ *
+ * @package BNS_Site_Data
+ * @since   0.1
+ *
+ * @uses    plugin_dir_path
+ * @uses    plugin_dir_url
+ * @uses    wp_enqueue_style
+ *
+ * @internal JavaScripts, etc. would be added via this same function call using
+ * wp_enqueue_script functionality
+ * @internal Used with action hook: wp_enqueue_scripts
+ */
+function BNS_Site_Data_Scripts_and_Styles() {
+    /** Enqueue Scripts */
+    /** Enqueue Style Sheets */
+    wp_enqueue_style( 'BNS-Site-Data-Style', plugin_dir_url( __FILE__ ) . 'bns-site-data-style.css', array(), '0.1', 'screen' );
+    /** Check if custom stylesheet is readable (exists) */
+    if ( is_readable( plugin_dir_path( __FILE__ ) . 'bns-site-data-custom-style.css' ) ) {
+        wp_enqueue_style( 'BNS-Site-Data-Custom-Style', plugin_dir_url( __FILE__ ) . 'bns-site-data-custom-style.css', array(), '0.1', 'screen' );
+    }
+}
+add_action( 'wp_enqueue_scripts', 'BNS_Site_Data_Scripts_and_Styles' );
+/** End: Enqueue Plugin Scripts and Styles */
+
 
 /** Start Class Extension */
 class BNS_Site_Data_Widget extends WP_Widget {
