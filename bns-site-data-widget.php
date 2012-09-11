@@ -300,12 +300,13 @@ function BNS_Site_Data_Widget_Shortcode( $atts ) {
                 $instance = shortcode_atts(
                     array(
                         /** Set title to null for aesthetic reasons */
-                        'posts'       => true,
-                        'pages'       => true,
-                        'categories'  => true,
-                        'tags'        => true,
-                        'comments'    => true,
-                        'attachments' => true,
+                        'title'         => __( 'Site Data' ),
+                        'posts'         => true,
+                        'pages'         => true,
+                        'cats'          => true,
+                        'tags'          => true,
+                        'comments'      => true,
+                        'attachments'   => true,
                     ),
                     $atts
                 ),
