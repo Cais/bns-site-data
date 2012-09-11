@@ -93,7 +93,7 @@ class BNS_Site_Data_Widget extends WP_Widget {
         /** Widget control settings. */
         $control_ops = array( 'width' => 200, 'id_base' => 'bns-site-data' );
         /** Create the widget. */
-        $this->WP_Widget( 'bns-site-data', 'BNS Site Data Widget', $widget_ops, $control_ops );
+        $this->WP_Widget( 'bns-site-data', 'BNS Site Data', $widget_ops, $control_ops );
     }
     /** End: Create Widget */
 
@@ -152,14 +152,14 @@ class BNS_Site_Data_Widget extends WP_Widget {
             $data['Attachments']    = wp_count_posts( 'attachment' )->inherit;
 
         /** @var $output - initialize widget content holder into a list */
-        $output = "<ul>";
+        $output = '<ul class="bns-site-data-list">';
 
         /** Add the values that exist as list items */
         foreach ( $data as $label => $value )
-            $output .= "<li>" . number_format( $value ) . ' ' . $label . "</li>";
+            $output .= '<li class="bns-site-data-item">' . number_format( $value ) . ' ' . $label . '</li>';
 
         /** Close the list */
-        $output .= "</ul>";
+        $output .= '</ul>';
 
         /** Write the list to the screen */
         echo $output;
