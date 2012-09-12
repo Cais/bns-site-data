@@ -18,7 +18,7 @@ License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  *
  * @package     BNS_Site_Data
  * @link        http://buynowshop.com/plugins/
- * @link        https://github.com/Cais/
+ * @link        https://github.com/Cais/bns-site-data
  * @link        http://wordpress.org/extend/plugins/
  * @version     0.1
  * @author      Edward Caissie <edward.caissie@gmail.com>
