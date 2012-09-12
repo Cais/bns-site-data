@@ -17,9 +17,9 @@ License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  * Show some basic stats about the site posts, pages, tags, etc.
  *
  * @package     BNS_Site_Data
- * @link        http://buynowshop.com/plugins/
+ * @link        http://buynowshop.com/plugins/bns-site-data
  * @link        https://github.com/Cais/bns-site-data
- * @link        http://wordpress.org/extend/plugins/
+ * @link        http://wordpress.org/extend/plugins/bns-site-data
  * @version     0.1
  * @author      Edward Caissie <edward.caissie@gmail.com>
  * @copyright   Copyright (c) 2012, Edward Caissie
@@ -44,15 +44,6 @@ License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  * The license for this software can also likely be found here:
  * http://www.gnu.org/licenses/gpl-2.0.html
  */
-
-
-/** Add function to the widgets_init hook. */
-add_action( 'widgets_init', 'load_BNS_Site_Data_Widget' );
-
-/** Function that registers our widget. */
-function load_BNS_Site_Data_Widget() {
-    register_widget( 'BNS_Site_Data_Widget' );
-}
 
 /**
  * Enqueue Plugin Scripts and Styles
@@ -90,7 +81,7 @@ class BNS_Site_Data_Widget extends WP_Widget {
     /** Create Widget */
     function BNS_Site_Data_Widget() {
         /** Widget settings. */
-        $widget_ops = array( 'classname' => 'bns-site-data', 'description' => __( 'Displays some site stuff.' ) );
+        $widget_ops = array( 'classname' => 'bns-site-data', 'description' => __( 'Displays some site stuff.', 'bns-sd' ) );
         /** Widget control settings. */
         $control_ops = array( 'width' => 200, 'id_base' => 'bns-site-data' );
         /** Create the widget. */
@@ -226,38 +217,38 @@ class BNS_Site_Data_Widget extends WP_Widget {
         $instance = wp_parse_args( (array) $instance, $defaults ); ?>
 
         <p>
-            <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
+            <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'bns-sd' ); ?></label>
             <input id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo $instance['title']; ?>" style="width:100%;" />
         </p>
 
         <p>
             <input class="checkbox" type="checkbox" <?php checked( (bool) $instance['posts'], true ); ?> id="<?php echo $this->get_field_id( 'posts' ); ?>" name="<?php echo $this->get_field_name( 'posts' ); ?>" />
-            <label for="<?php echo $this->get_field_id( 'posts' ); ?>"><?php _e( 'Show your posts count?' ); ?></label>
+            <label for="<?php echo $this->get_field_id( 'posts' ); ?>"><?php _e( 'Show your posts count?', 'bns-sd' ); ?></label>
         </p>
 
         <p>
             <input class="checkbox" type="checkbox" <?php checked( (bool) $instance['pages'], true ); ?> id="<?php echo $this->get_field_id( 'pages' ); ?>" name="<?php echo $this->get_field_name( 'pages' ); ?>" />
-            <label for="<?php echo $this->get_field_id( 'pages' ); ?>"><?php _e( 'Show your pages count?' ); ?></label>
+            <label for="<?php echo $this->get_field_id( 'pages' ); ?>"><?php _e( 'Show your pages count?', 'bns-sd' ); ?></label>
         </p>
 
         <p>
             <input class="checkbox" type="checkbox" <?php checked( (bool) $instance['cats'], true ); ?> id="<?php echo $this->get_field_id( 'cats' ); ?>" name="<?php echo $this->get_field_name( 'cats' ); ?>" />
-            <label for="<?php echo $this->get_field_id( 'cats' ); ?>"><?php _e( 'Show your categories count?' ); ?></label>
+            <label for="<?php echo $this->get_field_id( 'cats' ); ?>"><?php _e( 'Show your categories count?', 'bns-sd' ); ?></label>
         </p>
 
         <p>
             <input class="checkbox" type="checkbox" <?php checked( (bool) $instance['tags'], true ); ?> id="<?php echo $this->get_field_id( 'tags' ); ?>" name="<?php echo $this->get_field_name( 'tags' ); ?>" />
-            <label for="<?php echo $this->get_field_id( 'tags' ); ?>"><?php _e( 'Show your tags count?' ); ?></label>
+            <label for="<?php echo $this->get_field_id( 'tags' ); ?>"><?php _e( 'Show your tags count?', 'bns-sd' ); ?></label>
         </p>
 
         <p>
             <input class="checkbox" type="checkbox" <?php checked( (bool) $instance['comments'], true ); ?> id="<?php echo $this->get_field_id( 'comments' ); ?>" name="<?php echo $this->get_field_name( 'comments' ); ?>" />
-            <label for="<?php echo $this->get_field_id( 'comments' ); ?>"><?php _e( 'Show your comments count?' ); ?></label>
+            <label for="<?php echo $this->get_field_id( 'comments' ); ?>"><?php _e( 'Show your comments count?', 'bns-sd' ); ?></label>
         </p>
 
         <p>
             <input class="checkbox" type="checkbox" <?php checked( (bool) $instance['attachments'], true ); ?> id="<?php echo $this->get_field_id( 'attachments' ); ?>" name="<?php echo $this->get_field_name( 'attachments' ); ?>" />
-            <label for="<?php echo $this->get_field_id( 'attachments' ); ?>"><?php _e( 'Show your attachments count?' ); ?></label>
+            <label for="<?php echo $this->get_field_id( 'attachments' ); ?>"><?php _e( 'Show your attachments count?', 'bns-sd' ); ?></label>
         </p>
 
     <?php
@@ -266,6 +257,14 @@ class BNS_Site_Data_Widget extends WP_Widget {
 
 }
 /** End: Class Extension */
+
+/** Add the plugin to the available widgets */
+function load_BNS_Site_Data_Widget() {
+    register_widget( 'BNS_Site_Data_Widget' );
+}
+
+/** Load the plugin during widget initialization */
+add_action( 'widgets_init', 'load_BNS_Site_Data_Widget' );
 
 /**
  * BNS Site Data Shortcode
@@ -301,7 +300,7 @@ function BNS_Site_Data_Shortcode( $atts ) {
                 $instance = shortcode_atts(
                     array(
                         /** Set title to null for aesthetic reasons */
-                        'title'         => __( 'Site Data' ),
+                        'title'         => __( '', 'bns-sd' ),
                         'posts'         => true,
                         'pages'         => true,
                         'cats'          => true,
