@@ -1,22 +1,25 @@
-=== BNS Site Data Widget ===
+=== BNS Site Data ===
 Contributors: cais
 Donate link: http://buynowshop.com
-Tags: widget-only
+Tags: widget-only, site-statistics
 Requires at least: 2.8
-Tested up to: 3.4.2
+Tested up to: 3.5-alpha
 Stable tag: 0.1
 License: GNU General Public License v2
 License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
-Plugin with multi-widget functionality that displays stuff ...
+Display various toggleable site statistics.
 
 == Description ==
 
-Plugin with multi-widget functionality that displays stuff ... and a lot more things as well.
+Display various site statistics (read: counts) such as: posts, pages, categories, tags, comments, and attachments. Each can be toggled via a checkbox in the widget option panel.
 
 == Installation ==
 
-This section describes how to install the plugin and get it working.
+Under the Plugins | Add New menu item:
+
+* Using Search: look for "BNS Site Data" and click the install link, or
+* Using Upload: locate the archive file from your desktop and click the "Upload Now" button
 
 Read this article for further assistance: http://wpfirstaid.com/2009/12/plugin-installation/
 
@@ -37,6 +40,12 @@ NB: Use the shortcode at your own risk!
 
 = Can I use this in more than one widget area? =
 A: Yes, this plugin has been made for multi-widget compatibility. Each instance of the widget will display, if wanted, differently than every other instance of the widget.
+
+= Where can I get help with this plugin? =
+Please note, support may be available on the WordPress Support forums; but, it may be faster to visit one of the following sites:
+
+- https://github.com/Cais/bns-site-data/issues/
+- http://buynowshop.com/plugins/bns-site-data/
 
 == Screenshots ==
 1. The options panel as it appears in default.
@@ -61,8 +70,6 @@ A: Yes, this plugin has been made for multi-widget compatibility. Each instance 
 
   The license for this software can also likely be found here:
   http://www.gnu.org/licenses/gpl-2.0.html
-
-* Please note, support may be available on the WordPress Support forums; but, it may be faster to visit my site instead and leave a comment with the issue you are experiencing.
 
 == Upgrade Notice ==
 Please stay current with your WordPress installation, your active theme, and your plugins.
