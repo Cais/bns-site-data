@@ -271,7 +271,7 @@ class BNS_Site_Data_Widget extends WP_Widget {
  * BNS Site Data Shortcode
  * Adds shortcode functionality by using the PHP output buffer methods to
  * capture `the_widget` output and return the data to be displayed via the use
- * of the `wpfa_sample` shortcode.
+ * of the `bns_site_data` shortcode.
  *
  * @package BNS_Site_Data
  * @since   0.1
@@ -281,7 +281,7 @@ class BNS_Site_Data_Widget extends WP_Widget {
  *
  * @internal used with add_shortcode
  */
-function BNS_Site_Data_Widget_Shortcode( $atts ) {
+function BNS_Site_Data_Shortcode( $atts ) {
 
     /** Start output buffer capture */
     ob_start(); ?>
@@ -331,5 +331,5 @@ function BNS_Site_Data_Widget_Shortcode( $atts ) {
     /** Return the output buffer data for use with add_shortcode output */
     return $bns_site_data_output;
 }
-add_shortcode( 'bns_site_data', 'BNS_Site_Data_Widget_Shortcode' );
+add_shortcode( 'bns_site_data', 'BNS_Site_Data_Shortcode' );
 /** End: Shortcode */
