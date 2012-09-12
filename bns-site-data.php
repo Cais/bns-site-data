@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: BNS Site Data Widget
+Plugin Name: BNS Site Data
 Plugin URI: http://buynowshop.com/plugins/
 Description: Show some basic site statistics.
 Version: 0.1
