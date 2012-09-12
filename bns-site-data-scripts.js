@@ -1,5 +1,5 @@
 /**
- * BNS Site Data JavaScripts
+ * BNS Site Data Scripts
  *
  * @package     BNS_Site_Data
  * @since       0.1
@@ -32,5 +32,6 @@
 
 jQuery( document ).ready( function( $ ) {
     /** Note: $() will work as an alias for jQuery() inside of this function */
+    /** Add 'stripe' class for alternating list colors */
     $( 'ul.bns-site-data-list li:even' ).addClass( 'stripe' );
 } );
