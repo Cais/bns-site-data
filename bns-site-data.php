@@ -47,8 +47,8 @@ License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
 /**
  * Enqueue Plugin Scripts and Styles
- * Adds plugin stylesheet and allows for custom stylesheet to be added by
- * end-user. These stylesheets will only affect public facing output.
+ * Adds plugin scripts and stylesheet; allows for custom stylesheet to be added
+ * by end-user. These stylesheets will only affect public facing output.
  *
  * @package BNS_Site_Data
  * @since   0.1
