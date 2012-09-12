@@ -72,6 +72,7 @@ function load_BNS_Site_Data_Widget() {
  */
 function BNS_Site_Data_Scripts_and_Styles() {
     /** Enqueue Scripts */
+    wp_enqueue_script( 'bns-site-data-scripts', plugin_dir_url( __FILE__ ) . 'bns-site-data-scripts.js', array( 'jquery' ), '0.1', 'true' );
     /** Enqueue Style Sheets */
     wp_enqueue_style( 'BNS-Site-Data-Style', plugin_dir_url( __FILE__ ) . 'bns-site-data-style.css', array(), '0.1', 'screen' );
     /** Check if custom stylesheet is readable (exists) */

@@ -31,3 +31,7 @@ ul.bns-site-data-list {
     list-style-position: inside;
     padding: 5px 10px;
 }
+
+ul.bns-site-data-list li.stripe {
+    background: pink;
+}
