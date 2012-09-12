@@ -23,15 +23,28 @@
  *      Boston, MA  02110-1301  USA
  */
 
+/** Rounded border and white background */
 ul.bns-site-data-list {
     border: 1px solid #000;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     list-style-position: inside;
-    padding: 5px 10px;
+    padding: 10px 10px 10px 20px;
+    background-color: #ffffff;
 }
 
+/** Font color */
+ul.bns-site-data-list li {
+    color: #000000;
+}
+
+/** Stripe color */
 ul.bns-site-data-list li.stripe {
-    background: pink;
+    background: #d3d3d3;
+}
+
+/** Make sure the block of output doesn't slip under anything easily */
+.bns-site-data-shortcode {
+    clear: both;
 }
