@@ -12,7 +12,7 @@ Display various toggleable site statistics.
 
 == Description ==
 
-Display various site statistics (read: counts) such as: posts, pages, categories, tags, comments, and attachments. Each can be toggled via a checkbox in the widget option panel.
+Display various site statistics (read: counts) such as: posts, pages, categories, tags, comments, and attachments. Each site statistic can be toggled via a checkbox in the widget option panel.
 
 == Installation ==
 

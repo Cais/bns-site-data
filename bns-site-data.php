@@ -14,7 +14,9 @@ License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 /**
  * BNS Site Data WordPress plugin
  *
- * Show some basic stats about the site posts, pages, tags, etc.
+ * Display various site statistics (read: counts) such as: posts, pages,
+ * categories, tags, comments, and attachments. Each site statistic can be
+ * toggled via a checkbox in the widget option panel.
  *
  * @package     BNS_Site_Data
  * @link        http://buynowshop.com/plugins/bns-site-data
