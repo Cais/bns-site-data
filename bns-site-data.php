@@ -55,22 +55,25 @@ License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  * @package BNS_Site_Data
  * @since   0.1
  *
+ * @uses    get_plugin_data
  * @uses    plugin_dir_path
  * @uses    plugin_dir_url
+ * @uses    wp_enqueue_script
  * @uses    wp_enqueue_style
  *
- * @internal JavaScripts, etc. would be added via this same function call using
- * wp_enqueue_script functionality
+ * @internal jQuery is enqueued as a dependency
  * @internal Used with action hook: wp_enqueue_scripts
  */
 function BNS_Site_Data_Scripts_and_Styles() {
+    /** @var $bns_sd_data - holds plugin data */
+    $bns_sd_data = get_plugin_data( __FILE__ );
     /** Enqueue Scripts */
-    wp_enqueue_script( 'bns-site-data-scripts', plugin_dir_url( __FILE__ ) . 'bns-site-data-scripts.js', array( 'jquery' ), '0.1', 'true' );
+    wp_enqueue_script( 'BNS-Site-Data-Scripts', plugin_dir_url( __FILE__ ) . 'bns-site-data-scripts.js', array( 'jquery' ), $bns_sd_data['Version'], 'true' );
     /** Enqueue Style Sheets */
-    wp_enqueue_style( 'BNS-Site-Data-Style', plugin_dir_url( __FILE__ ) . 'bns-site-data-style.css', array(), '0.1', 'screen' );
+    wp_enqueue_style( 'BNS-Site-Data-Style', plugin_dir_url( __FILE__ ) . 'bns-site-data-style.css', array(), $bns_sd_data['Version'], 'screen' );
     /** Check if custom stylesheet is readable (exists) */
     if ( is_readable( plugin_dir_path( __FILE__ ) . 'bns-site-data-custom-style.css' ) ) {
-        wp_enqueue_style( 'BNS-Site-Data-Custom-Style', plugin_dir_url( __FILE__ ) . 'bns-site-data-custom-style.css', array(), '0.1', 'screen' );
+        wp_enqueue_style( 'BNS-Site-Data-Custom-Style', plugin_dir_url( __FILE__ ) . 'bns-site-data-custom-style.css', array(), $bns_sd_data['Version'], 'screen' );
     }
 }
 add_action( 'wp_enqueue_scripts', 'BNS_Site_Data_Scripts_and_Styles' );
