@@ -39,7 +39,7 @@ NB: Use the shortcode at your own risk!
 == Frequently Asked Questions ==
 
 = Can I use this in more than one widget area? =
-A: Yes, this plugin has been made for multi-widget compatibility. Each instance of the widget will display, if wanted, differently than every other instance of the widget.
+Yes, this plugin has been made for multi-widget compatibility. Each instance of the widget will display, if wanted, differently than every other instance of the widget.
 
 = Where can I get help with this plugin? =
 Please note, support may be available on the WordPress Support forums; but, it may be faster to visit one of the following sites:
@@ -47,8 +47,13 @@ Please note, support may be available on the WordPress Support forums; but, it m
 - https://github.com/Cais/bns-site-data/issues/
 - http://buynowshop.com/plugins/bns-site-data/
 
+= Why does my site not look like the screenshot? =
+The screenshot was taken as an example when the plugin is used with the Twenty Ten theme. How the widget displays is strongly affected by the active theme styles.
+I would recommend creating and using the 'bns-site-data-custom-style.css' stylesheet to set the style according to your own tastes and preferences.
+
 == Screenshots ==
 1. The options panel as it appears in default.
+2. The default widget and default shortcode output (using sample data).
 
 == Other Notes ==
 * Copyright 2012  Edward Caissie  (email : edward.caissie@gmail.com)
