@@ -6,7 +6,7 @@ Description: Show some basic site statistics.
 Version: 0.1
 Author: Edward Caissie
 Author URI: http://edwardcaissie.com/
-Textdomain: bns-sd
+Text Domain: bns-sd
 License: GNU General Public License v2
 License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 */
