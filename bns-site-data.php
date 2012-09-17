@@ -349,10 +349,9 @@ function BNS_Site_Data_Shortcode( $atts ) {
                 ) ); ?>
         </div><!-- .bns-site-data-shortcode -->
     <?php
-    /** End the output buffer capture and save captured data into variable */
-    $bns_site_data_output = ob_get_contents();
-    /** Stop output buffer capture and clear properly */
-    ob_end_clean();
+    /** Get the current output buffer contents and delete current output buffer. */
+    /** @var $bns_site_data_output string */
+    $bns_site_data_output = ob_get_clean();
 
     /** Return the output buffer data for use with add_shortcode output */
     return $bns_site_data_output;
