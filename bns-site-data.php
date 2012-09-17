@@ -356,5 +356,5 @@ function BNS_Site_Data_Shortcode( $atts ) {
     /** Return the output buffer data for use with add_shortcode output */
     return $bns_site_data_output;
 }
-add_shortcode( 'bns-site-data', 'BNS_Site_Data_Shortcode' );
+add_shortcode( 'bns_site_data', 'BNS_Site_Data_Shortcode' );
 /** End: Shortcode */

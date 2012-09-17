@@ -24,7 +24,8 @@
  */
 
 /** Rounded border around widget and white background */
-li.bns-site-data {
+li.bns-site-data,
+ul.bns-site-data-list {
     border: 1px solid #000000;
     border-radius: 5px;
     -webkit-border-radius: 5px;
