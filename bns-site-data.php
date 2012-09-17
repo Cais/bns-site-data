@@ -154,9 +154,16 @@ class BNS_Site_Data_Widget extends WP_Widget {
         /** @var $output - initialize widget content output as an unordered list */
         $output = '<ul class="bns-site-data-list">';
 
-        /** Read the data array and add the values that exist as list items */
+        /**
+         * Read the data array and add the values that exist as list items.
+         * @internal dynamic filter hooks are available for each label; can you
+         * say Mallory-Everest?!
+         */
         foreach ( $data as $label => $value )
-            $output .= '<li class="bns-site-data-' . strtolower( $label ) . '">' . number_format( $value ) . ' ' . $label . '</li>';
+            $output .= apply_filters(
+                'bns_site_data_' . strtolower( $label ),
+                '<li class="bns-site-data-' . strtolower( $label ) . '">' . number_format( $value ) . ' ' . $label . '</li>'
+            );
 
         /** Close the list */
         $output .= '</ul>';

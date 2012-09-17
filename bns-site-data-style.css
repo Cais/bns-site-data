@@ -25,7 +25,7 @@
 
 /** Rounded border around widget and white background */
 li.bns-site-data,
-ul.bns-site-data-list {
+div.bns-site-data-shortcode {
     border: 1px solid #000000;
     border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -42,7 +42,7 @@ ul.bns-site-data-list li {
 
 /** Stripe color */
 ul.bns-site-data-list li.stripe {
-    background: #d3d3d3;
+    background: #d3d3d3; /** lightgrey */
 }
 
 /** Make sure the shortcode output does not easily slip under anything */
