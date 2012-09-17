@@ -273,12 +273,24 @@ class BNS_Site_Data_Widget extends WP_Widget {
 }
 /** End: Class Extension */
 
-/** Add the plugin to the available widgets */
+/**
+ * Load BNS Site Data Widget
+ * We need to take the widget code (read: the class BNS_Site_Data_Widget that
+ * extends the WP_Widget class) and register it as a widget.
+ *
+ * @package BNS_Site_Data
+ * @since   0.1
+ *
+ * @uses    register_widget
+ */
 function load_BNS_Site_Data_Widget() {
     register_widget( 'BNS_Site_Data_Widget' );
 }
 
-/** Load the plugin during widget initialization */
+/**
+ * Once the widget is registered it can be added/loaded during the widget
+ * initialization via an action hook.
+ */
 add_action( 'widgets_init', 'load_BNS_Site_Data_Widget' );
 
 /**
