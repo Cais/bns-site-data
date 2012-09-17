@@ -171,6 +171,11 @@ class BNS_Site_Data_Widget extends WP_Widget {
 
     /**
      * Overrides update method from WP_Widget class
+     * Update a particular instance of the widget.
+     *
+     * This function should check that $new_instance is set correctly. The newly
+     * calculated value of $instance should be returned. If "false" is returned,
+     * the instance won't be saved/updated.
      *
      * @package BNS_Site_Data
      * @since   0.1
