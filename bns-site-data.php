@@ -133,7 +133,10 @@ class BNS_Site_Data_Widget extends WP_Widget {
             /** @noinspection PhpUndefinedVariableInspection - IDE ONLY comment */
             echo $before_title . $title . $after_title;
 
-        /** Choose which details are shown based on widget settings. */
+        /**
+         * Initialize the data array; and, only add the values based on the
+         * widget option panel settings.
+         */
         $data = array();
         if ( $posts )
             $data['Posts']          = wp_count_posts( 'post' )->publish;
@@ -148,10 +151,10 @@ class BNS_Site_Data_Widget extends WP_Widget {
         if ( $attachments )
             $data['Attachments']    = wp_count_posts( 'attachment' )->inherit;
 
-        /** @var $output - initialize widget content holder into a list */
+        /** @var $output - initialize widget content output as an unordered list */
         $output = '<ul class="bns-site-data-list">';
 
-        /** Add the values that exist as list items */
+        /** Read the data array and add the values that exist as list items */
         foreach ( $data as $label => $value )
             $output .= '<li class="bns-site-data-' . strtolower( $label ) . '">' . number_format( $value ) . ' ' . $label . '</li>';
 
