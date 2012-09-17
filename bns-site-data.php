@@ -202,6 +202,8 @@ class BNS_Site_Data_Widget extends WP_Widget {
 
     /**
      * Overrides form method from WP_Widget class
+     * This function displays the widget option panel form used to update the
+     * widget settings.
      *
      * @package BNS_Site_Data
      * @since   0.1
@@ -219,7 +221,7 @@ class BNS_Site_Data_Widget extends WP_Widget {
     function form( $instance ) {
         /** Set default widget settings. */
         $defaults = array(
-            'title'         => __( 'Site Data' ),
+            'title'         => __( 'Site Data', 'bns-sd' ),
             'posts'         => true,
             'pages'         => true,
             'cats'          => true,
