@@ -9,13 +9,13 @@
  *
  * This file is part of BNS Site Data
  *
- * Opus Primus is free software; you can redistribute it and/or modify it under
- * the terms of the GNU General Public License version 2, as published by the
- * Free Software Foundation.
+ * BNS Site Data is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License version 2, as published
+ * by the Free Software Foundation.
  *
  * You may NOT assume that you can use any other version of the GPL.
  *
- * This program is distributed in the hope that it will be useful, but WITHOUT
+ * BNS Site Data is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
  * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details
  *
