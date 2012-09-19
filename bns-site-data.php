@@ -66,6 +66,7 @@ License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 function BNS_Site_Data_Scripts_and_Styles() {
     /** @var $bns_sd_data - holds plugin data */
+    require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
     $bns_sd_data = get_plugin_data( __FILE__ );
     /** Enqueue Scripts */
     wp_enqueue_script( 'BNS-Site-Data-Scripts', plugin_dir_url( __FILE__ ) . 'bns-site-data-scripts.js', array( 'jquery' ), $bns_sd_data['Version'], 'true' );
