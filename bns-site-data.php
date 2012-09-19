@@ -3,7 +3,7 @@
 Plugin Name: BNS Site Data
 Plugin URI: http://buynowshop.com/plugins/
 Description: Show some basic site statistics.
-Version: 0.2-alpha
+Version: 0.1.1
 Author: Edward Caissie
 Author URI: http://edwardcaissie.com/
 Text Domain: bns-sd
@@ -22,7 +22,7 @@ License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  * @link        http://buynowshop.com/plugins/bns-site-data
  * @link        https://github.com/Cais/bns-site-data
  * @link        http://wordpress.org/extend/plugins/bns-site-data
- * @version     0.2
+ * @version     0.1.1
  * @author      Edward Caissie <edward.caissie@gmail.com>
  * @copyright   Copyright (c) 2012, Edward Caissie
  *
@@ -63,6 +63,10 @@ License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  *
  * @internal jQuery is enqueued as a dependency
  * @internal Used with action hook: wp_enqueue_scripts
+ *
+ * @version 0.1.1
+ * @date    September 19, 2012
+ * Correct error with undefined function
  */
 function BNS_Site_Data_Scripts_and_Styles() {
     /** @var $bns_sd_data - holds plugin data */
