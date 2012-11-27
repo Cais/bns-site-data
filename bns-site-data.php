@@ -3,7 +3,7 @@
 Plugin Name: BNS Site Data
 Plugin URI: http://buynowshop.com/plugins/
 Description: Show some basic site statistics.
-Version: 0.1.1
+Version: 0.2
 Author: Edward Caissie
 Author URI: http://edwardcaissie.com/
 Text Domain: bns-sd
@@ -13,7 +13,6 @@ License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
 /**
  * BNS Site Data WordPress plugin
- *
  * Display various site statistics (read: counts) such as: posts, pages,
  * categories, tags, comments, and attachments. Each site statistic can be
  * toggled via a checkbox in the widget option panel.
@@ -22,7 +21,7 @@ License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  * @link        http://buynowshop.com/plugins/bns-site-data
  * @link        https://github.com/Cais/bns-site-data
  * @link        http://wordpress.org/extend/plugins/bns-site-data
- * @version     0.1.1
+ * @version     0.2
  * @author      Edward Caissie <edward.caissie@gmail.com>
  * @copyright   Copyright (c) 2012, Edward Caissie
  *
@@ -67,13 +66,23 @@ License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  * @version 0.1.1
  * @date    September 19, 2012
  * Correct error with undefined function
+ *
+ * @version 0.2
+ * @date    November 26, 2012
+ * Add custom script (end-user supplied) file call
  */
 function BNS_Site_Data_Scripts_and_Styles() {
     /** @var $bns_sd_data - holds plugin data */
     require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
     $bns_sd_data = get_plugin_data( __FILE__ );
+
     /** Enqueue Scripts */
     wp_enqueue_script( 'BNS-Site-Data-Scripts', plugin_dir_url( __FILE__ ) . 'bns-site-data-scripts.js', array( 'jquery' ), $bns_sd_data['Version'], 'true' );
+    /** Check if custom script file is readable (exists) */
+    if ( is_readable( plugin_dir_path( __FILE__ ) . 'bns-site-data-custom-scripts.js' ) ) {
+        wp_enqueue_script( 'BNS-Site-Data-Custom-Style', plugin_dir_url( __FILE__ ) . 'bns-site-data-custom-scripts.js', array( 'jquery' ), $bns_sd_data['Version'], 'true' );
+    }
+
     /** Enqueue Style Sheets */
     wp_enqueue_style( 'BNS-Site-Data-Style', plugin_dir_url( __FILE__ ) . 'bns-site-data-style.css', array(), $bns_sd_data['Version'], 'screen' );
     /** Check if custom stylesheet is readable (exists) */
