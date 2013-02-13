@@ -83,6 +83,7 @@ Please stay current with your WordPress installation, your active theme, and you
 = 0.3 =
 * Release February 2013
 * Moved all code into class structure
+* Renamed `BNS_Site_Data_Scripts_and_Styles` to `scripts_and_styles`
 
 = 0.2 =
 * Release November 2012

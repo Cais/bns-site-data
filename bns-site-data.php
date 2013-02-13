@@ -48,6 +48,7 @@ License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  * @version 0.3
  * @date    February 13, 2013
  * Moved all code into class structure
+ * Added code block termination comments
  */
 
 class BNS_Site_Data_Widget extends WP_Widget {
@@ -70,7 +71,7 @@ class BNS_Site_Data_Widget extends WP_Widget {
         $this->WP_Widget( 'bns-site-data', 'BNS Site Data', $widget_ops, $control_ops );
 
         /** End: Enqueue Plugin Scripts and Styles */
-        add_action( 'wp_enqueue_scripts', array( $this, 'BNS_Site_Data_Scripts_and_Styles' ) );
+        add_action( 'wp_enqueue_scripts', array( $this, 'scripts_and_styles' ) );
 
         /**
          * Once the widget is registered it can be added/loaded during the
@@ -113,35 +114,41 @@ class BNS_Site_Data_Widget extends WP_Widget {
         $comments       = $instance['comments'];
         $attachments    = $instance['attachments'];
 
-
         /** Before widget (defined by themes). */
         /** @var $before_widget string - defined by theme */
         echo $before_widget;
 
         /** Widget title */
-        if ( $title )
+        if ( $title ) {
             /** @noinspection PhpUndefinedVariableInspection - IDE ONLY comment */
             echo $before_title . $title . $after_title;
+        } /** End if - title */
 
         /**
          * Initialize the data array; and, only add the values based on the
          * widget option panel settings.
          */
         $data = array();
-        if ( $posts )
+        if ( $posts ) {
             $data['Posts']          = wp_count_posts( 'post' )->publish;
-        if ( $pages )
+        } /** End if - posts */
+        if ( $pages ) {
             $data['Pages']          = wp_count_posts( 'page' )->publish;
-        if ( $cats )
+        } /** End if - pages */
+        if ( $cats ) {
             $data['Categories']     = wp_count_terms( 'category' );
-        if ( $tags )
+        } /** End if - categories */
+        if ( $tags ) {
             $data['Tags']           = wp_count_terms( 'post_tag' );
-        if ( $comments )
+        } /** End if - tags */
+        if ( $comments ) {
             $data['Comments']       = wp_count_comments()->approved;
-        if ( $attachments )
+        } /** End if - comments */
+        if ( $attachments ) {
             $data['Attachments']    = wp_count_posts( 'attachment' )->inherit;
+        } /** End if - attachments */
 
-        /** @var $output - initialize widget content output as an unordered list */
+        /** @var $output - initialize widget content as an unordered list */
         $output = '<ul class="bns-site-data-list">';
 
         /**
@@ -149,11 +156,12 @@ class BNS_Site_Data_Widget extends WP_Widget {
          * @internal dynamic filter hooks are available for each label; can you
          * say Mallory-Everest?!
          */
-        foreach ( $data as $label => $value )
+        foreach ( $data as $label => $value ) {
             $output .= apply_filters(
                 'bns_site_data_' . strtolower( $label ),
                 '<li class="bns-site-data-' . strtolower( $label ) . '">' . number_format( $value ) . ' ' . $label . '</li>'
             );
+        } /** End for - data as lable value */
 
         /** Close the list */
         $output .= '</ul>';
@@ -163,8 +171,8 @@ class BNS_Site_Data_Widget extends WP_Widget {
 
         /** @var $after_widget (defined by themes). */
         echo $after_widget;
-    }
-    /** End: widget method override */
+    } /** End function - widget method override */
+
 
     /**
      * Overrides update method from WP_Widget class
@@ -194,8 +202,9 @@ class BNS_Site_Data_Widget extends WP_Widget {
         $instance['attachments']    = $new_instance['attachments'];
 
         return $instance;
-    }
-    /** End: update override */
+
+    } /** End function - update override */
+
 
     /**
      * Overrides form method from WP_Widget class
@@ -264,8 +273,7 @@ class BNS_Site_Data_Widget extends WP_Widget {
         </p>
 
     <?php
-    }
-    /** End: form override */
+    } /** End function - form override */
 
 
     /**
@@ -292,8 +300,9 @@ class BNS_Site_Data_Widget extends WP_Widget {
      * @version 0.2
      * @date    November 26, 2012
      * Add custom script (end-user supplied) file call
+     * Renamed `BNS_Site_Data_Scripts_and_Styles` to `scripts_and_styles`
      */
-    function BNS_Site_Data_Scripts_and_Styles() {
+    function scripts_and_styles() {
         /** @var $bns_sd_data - holds plugin data */
         require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
         $bns_sd_data = get_plugin_data( __FILE__ );
@@ -303,15 +312,16 @@ class BNS_Site_Data_Widget extends WP_Widget {
         /** Check if custom script file is readable (exists) */
         if ( is_readable( plugin_dir_path( __FILE__ ) . 'bns-site-data-custom-scripts.js' ) ) {
             wp_enqueue_script( 'BNS-Site-Data-Custom-Style', plugin_dir_url( __FILE__ ) . 'bns-site-data-custom-scripts.js', array( 'jquery' ), $bns_sd_data['Version'], 'true' );
-        }
+        } /** End if - is readable */
 
         /** Enqueue Style Sheets */
         wp_enqueue_style( 'BNS-Site-Data-Style', plugin_dir_url( __FILE__ ) . 'bns-site-data-style.css', array(), $bns_sd_data['Version'], 'screen' );
         /** Check if custom stylesheet is readable (exists) */
         if ( is_readable( plugin_dir_path( __FILE__ ) . 'bns-site-data-custom-style.css' ) ) {
             wp_enqueue_style( 'BNS-Site-Data-Custom-Style', plugin_dir_url( __FILE__ ) . 'bns-site-data-custom-style.css', array(), $bns_sd_data['Version'], 'screen' );
-        }
-    }
+        } /** End if - is readable */
+
+    } /** End function - scripts and styles */
 
 
     /**
@@ -326,7 +336,7 @@ class BNS_Site_Data_Widget extends WP_Widget {
      */
     function load_BNS_Site_Data_Widget() {
         register_widget( 'BNS_Site_Data_Widget' );
-    }
+    } /** End function - load widget */
 
 
     /**
@@ -347,51 +357,52 @@ class BNS_Site_Data_Widget extends WP_Widget {
 
         /** Start output buffer capture */
         ob_start(); ?>
-    <div class="bns-site-data-shortcode">
-        <?php
-        /**
-         * Use 'the_widget' as the main output function to be captured
-         * @link http://codex.wordpress.org/Function_Reference/the_widget
-         */
-        the_widget(
-        /** The widget name as defined in the class extension */
-            'BNS_Site_Data_Widget',
+        <div class="bns-site-data-shortcode">
+            <?php
             /**
-             * The default options (as the shortcode attributes array) to be
-             * used with the widget
+             * Use 'the_widget' as the main output function to be captured
+             * @link http://codex.wordpress.org/Function_Reference/the_widget
              */
-            $instance = shortcode_atts(
-                array(
-                    /** Set title to null for aesthetic reasons */
-                    'title'         => __( '', 'bns-sd' ),
-                    'posts'         => true,
-                    'pages'         => true,
-                    'cats'          => true,
-                    'tags'          => true,
-                    'comments'      => true,
-                    'attachments'   => true,
+            the_widget(
+            /** The widget name as defined in the class extension */
+                'BNS_Site_Data_Widget',
+                /**
+                 * The default options (as the shortcode attributes array) to be
+                 * used with the widget
+                 */
+                $instance = shortcode_atts(
+                    array(
+                        /** Set title to null for aesthetic reasons */
+                        'title'         => __( '', 'bns-sd' ),
+                        'posts'         => true,
+                        'pages'         => true,
+                        'cats'          => true,
+                        'tags'          => true,
+                        'comments'      => true,
+                        'attachments'   => true,
+                    ),
+                    $atts
                 ),
-                $atts
-            ),
-            /**
-             * Override the widget arguments and set to null. This will set the
-             * theme related widget definitions to null for aesthetic purposes.
-             */
-            $args = array (
-                'before_widget'   => '',
-                'before_title'    => '',
-                'after_title'     => '',
-                'after_widget'    => ''
-            ) ); ?>
-    </div><!-- .bns-site-data-shortcode -->
-    <?php
+                /**
+                 * Override the widget arguments and set to null. This will set
+                 * theme related widget definitions to null for aesthetic purposes.
+                 */
+                $args = array (
+                    'before_widget'   => '',
+                    'before_title'    => '',
+                    'after_title'     => '',
+                    'after_widget'    => ''
+                ) ); ?>
+        </div><!-- .bns-site-data-shortcode -->
+        <?php
         /** Get the current output buffer contents and delete current output buffer. */
         /** @var $bns_site_data_output string */
         $bns_site_data_output = ob_get_clean();
 
         /** Return the output buffer data for use with add_shortcode output */
         return $bns_site_data_output;
-    }
+
+    } /** End function - bns site data shortcode */
 
 
 } /** End class - bns site data */
