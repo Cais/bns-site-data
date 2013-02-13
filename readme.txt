@@ -82,6 +82,7 @@ Please stay current with your WordPress installation, your active theme, and you
 == Changelog ==
 = 0.3 =
 * Release February 2013
+* Added code block termination comments
 * Moved all code into class structure
 * Renamed `BNS_Site_Data_Scripts_and_Styles` to `scripts_and_styles`
 

@@ -5,7 +5,7 @@
  * @since       0.1
  *
  * @author      Edward Caissie <edward.caissie@gmail.com>
- * @copyright   Copyright (c) 2012, Edward Caissie
+ * @copyright   Copyright (c) 2012-2013, Edward Caissie
  *
  * This file is part of BNS Site Data
  *

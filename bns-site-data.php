@@ -161,7 +161,7 @@ class BNS_Site_Data_Widget extends WP_Widget {
                 'bns_site_data_' . strtolower( $label ),
                 '<li class="bns-site-data-' . strtolower( $label ) . '">' . number_format( $value ) . ' ' . $label . '</li>'
             );
-        } /** End for - data as lable value */
+        } /** End for - data as label value */
 
         /** Close the list */
         $output .= '</ul>';
