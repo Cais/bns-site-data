@@ -3,8 +3,8 @@ Contributors: cais
 Donate link: http://buynowshop.com
 Tags: widget-only, site-statistics
 Requires at least: 2.8
-Tested up to: 3.5
-Stable tag: 0.2
+Tested up to: 3.5.1
+Stable tag: 0.3
 License: GNU General Public License v2
 License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -56,7 +56,7 @@ I would recommend creating and using the 'bns-site-data-custom-style.css' styles
 2. The default widget and default shortcode output (using sample data).
 
 == Other Notes ==
-* Copyright 2012  Edward Caissie  (email : edward.caissie@gmail.com)
+* Copyright 2012-2013  Edward Caissie  (email : edward.caissie@gmail.com)
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License version 2,
@@ -80,6 +80,10 @@ I would recommend creating and using the 'bns-site-data-custom-style.css' styles
 Please stay current with your WordPress installation, your active theme, and your plugins.
 
 == Changelog ==
+= 0.3 =
+* Release February 2013
+* Moved all code into class structure
+
 = 0.2 =
 * Release November 2012
 * Add custom script (end-user supplied) file call
