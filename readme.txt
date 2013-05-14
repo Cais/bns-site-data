@@ -3,8 +3,8 @@ Contributors: cais
 Donate link: http://buynowshop.com
 Tags: widget-only, site-statistics
 Requires at least: 2.8
-Tested up to: 3.5.1
-Stable tag: 0.3
+Tested up to: 3.6
+Stable tag: 0.3.1
 License: GNU General Public License v2
 License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -80,6 +80,11 @@ I would recommend creating and using the 'bns-site-data-custom-style.css' styles
 Please stay current with your WordPress installation, your active theme, and your plugins.
 
 == Changelog ==
+= 0.3.1 =
+* Release May 2013
+* Version number compatibility update
+* Removed border and padding in widget areas
+
 = 0.3 =
 * Release February 2013
 * Added code block termination comments

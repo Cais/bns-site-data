@@ -1,6 +1,6 @@
 /**
  * This file is part of BNS Site Data Widget
- * Last revised at version 0.2
+ * Last revised at version 0.3.1
  *
  * Copyright 2012-2013  Edward Caissie  (email : edward.caissie@gmail.com)
  *
@@ -21,6 +21,10 @@
  *      Free Software Foundation, Inc.
  *      51 Franklin St, Fifth Floor
  *      Boston, MA  02110-1301  USA
+ *
+ * @version 0.3.1
+ * @date    May 14, 2013
+ * Removed border and padding in widget areas
  */
 
 /** Rounded border around widget and white background */
@@ -33,6 +37,11 @@ div.bns-site-data-shortcode {
     list-style-position: inside;
     padding: 10px 10px 10px 20px;
     background-color: #ffffff;
+}
+
+.widget.bns-site-data {
+    border: none;
+    padding: 0;
 }
 
 /** Font color */
