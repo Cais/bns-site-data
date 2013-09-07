@@ -4,7 +4,7 @@ Donate link: http://buynowshop.com
 Tags: widget-only, site-statistics
 Requires at least: 2.8
 Tested up to: 3.6
-Stable tag: 0.3.1
+Stable tag: 0.3.2
 License: GNU General Public License v2
 License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -80,6 +80,10 @@ I would recommend creating and using the 'bns-site-data-custom-style.css' styles
 Please stay current with your WordPress installation, your active theme, and your plugins.
 
 == Changelog ==
+= 0.3.2 =
+* Released September 2013
+* Added third parameter to `shortcode_atts` for automatic filter creation
+
 = 0.3.1 =
 * Release May 2013
 * Version number compatibility update

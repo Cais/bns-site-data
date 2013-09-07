@@ -3,7 +3,7 @@
 Plugin Name: BNS Site Data
 Plugin URI: http://buynowshop.com/plugins/
 Description: Show some basic site statistics.
-Version: 0.3.1
+Version: 0.3.2
 Author: Edward Caissie
 Author URI: http://edwardcaissie.com/
 Text Domain: bns-sd
@@ -21,7 +21,7 @@ License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  * @link        http://buynowshop.com/plugins/bns-site-data
  * @link        https://github.com/Cais/bns-site-data
  * @link        http://wordpress.org/extend/plugins/bns-site-data
- * @version     0.3.1
+ * @version     0.3.2
  * @author      Edward Caissie <edward.caissie@gmail.com>
  * @copyright   Copyright (c) 2012-2013, Edward Caissie
  *
@@ -53,6 +53,10 @@ License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  * @version 0.3.1
  * @date    May 14, 2013
  * Version number compatibility update
+ *
+ * @version 0.3.2
+ * @date    September 7, 2013
+ * Added third parameter to `shortcode_atts` for automatic filter creation
  */
 
 class BNS_Site_Data_Widget extends WP_Widget {
@@ -356,6 +360,10 @@ class BNS_Site_Data_Widget extends WP_Widget {
      * @uses    shortcode_atts
      *
      * @internal used with add_shortcode
+     *
+     * @version 0.3.2
+     * @date    September 7, 2013
+     * Added third parameter to `shortcode_atts` for automatic filter creation
      */
     function BNS_Site_Data_Shortcode( $atts ) {
 
@@ -385,7 +393,7 @@ class BNS_Site_Data_Widget extends WP_Widget {
                         'comments'      => true,
                         'attachments'   => true,
                     ),
-                    $atts
+                    $atts, 'bns_site_data'
                 ),
                 /**
                  * Override the widget arguments and set to null. This will set
