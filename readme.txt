@@ -3,7 +3,7 @@ Contributors: cais
 Donate link: http://buynowshop.com
 Tags: widget-only, site-statistics
 Requires at least: 2.8
-Tested up to: 3.6
+Tested up to: 3.8.1
 Stable tag: 0.3.2
 License: GNU General Public License v2
 License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html

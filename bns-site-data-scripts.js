@@ -30,8 +30,8 @@
  * http://www.gnu.org/licenses/gpl-2.0.html
  */
 
-jQuery( document ).ready( function( $ ) {
-    /** Note: $() will work as an alias for jQuery() inside of this function */
-    /** Add 'stripe' class for alternating list colors */
-    $( 'ul.bns-site-data-list li:even' ).addClass( 'stripe' );
-} );
+jQuery(document).ready(function ($) {
+	/** Note: $() will work as an alias for jQuery() inside of this function */
+	/** Add 'stripe' class for alternating list colors */
+	$('ul.bns-site-data-list li:even').addClass('stripe');
+});
