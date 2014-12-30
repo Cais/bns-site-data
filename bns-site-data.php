@@ -414,6 +414,10 @@ class BNS_Site_Data_Widget extends WP_Widget {
 	 * @version  0.3.2
 	 * @date     September 7, 2013
 	 * Added third parameter to `shortcode_atts` for automatic filter creation
+	 *
+	 * @param $atts
+	 *
+	 * @return string
 	 */
 	function BNS_Site_Data_Shortcode( $atts ) {
 
