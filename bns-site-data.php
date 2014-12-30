@@ -64,6 +64,21 @@ class BNS_Site_Data_Widget extends WP_Widget {
 	 */
 	function BNS_Site_Data_Widget() {
 
+		/**
+		 * Check installed WordPress version for compatibility
+		 *
+		 * @internal    Version 3.6 in reference to `shortcode_atts` filter option
+		 * @link        https://developer.wordpress.org/reference/functions/shortcode_atts/
+		 */
+		global $wp_version;
+		$exit_message = sprintf( __( 'BNS Site Data requires WordPress version 3.6 or newer. %1$s', 'bns-site-data' ), '<a href="http://codex.wordpress.org/Upgrading_WordPress">' . __( 'Please Update!', 'bns-site-data' ) . '</a>' );
+		$exit_message .= '<br />';
+		$exit_message .= sprintf( __( 'In reference to the shortcode default attributes filter. See %1$s.', 'bns-site-data' ), '<a href="https://developer.wordpress.org/reference/functions/shortcode_atts/">' . __( 'this link', 'bns-site-data' ) . '</a>' );
+		if ( version_compare( $wp_version, "3.6", "<" ) ) {
+			exit( $exit_message );
+		}
+		/** End if = version compare */
+
 		/** Widget settings. */
 		$widget_ops = array(
 			'classname'   => 'bns-site-data',

@@ -84,6 +84,7 @@ Please stay current with your WordPress installation, your active theme, and you
 * Released ...
 * Added `bns-site-data.pot` file for translators
 * Added "in plugin update message"
+* Added WordPress version check for 3.6 with exit messages
 * Changed `bns-sd` text domain to `bns-site-data`
 * Updates to code formatting to better meet WordPress Coding Standards
 
