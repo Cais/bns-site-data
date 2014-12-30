@@ -13,6 +13,7 @@ License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
 /**
  * BNS Site Data WordPress plugin
+ *
  * Display various site statistics (read: counts) such as: posts, pages,
  * categories, tags, comments, and attachments. Each site statistic can be
  * toggled via a checkbox in the widget option panel.
@@ -20,7 +21,7 @@ License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  * @package     BNS_Site_Data
  * @link        http://buynowshop.com/plugins/bns-site-data
  * @link        https://github.com/Cais/bns-site-data
- * @link        http://wordpress.org/extend/plugins/bns-site-data
+ * @link        http://wordpress.org/plugins/bns-site-data
  * @version     0.4
  * @author      Edward Caissie <edward.caissie@gmail.com>
  * @copyright   Copyright (c) 2012-2014, Edward Caissie
@@ -53,17 +54,25 @@ class BNS_Site_Data_Widget extends WP_Widget {
 	 * @package BNS_Site_Data
 	 * @since   0.1
 	 *
-	 * @uses    WP_Widget (class)
+	 * @uses    BNS_Site_Data_Widget::WP_Widget (factory)
+	 * @uses    BNS_Site_Data_Widget::BNS_Site_Data_Shortcode
+	 * @uses    BNS_Site_Data_Widget::load_BNS_Site_Data_Widget
+	 * @uses    BNS_Site_Data_Widget::scripts_and_styles
+	 * @uses    __
 	 * @uses    add_action
+	 * @uses    add_shortcode
 	 */
 	function BNS_Site_Data_Widget() {
+
 		/** Widget settings. */
 		$widget_ops = array(
 			'classname'   => 'bns-site-data',
 			'description' => __( 'Displays some site stuff.', 'bns-site-data' )
 		);
+
 		/** Widget control settings. */
 		$control_ops = array( 'width' => 200, 'id_base' => 'bns-site-data' );
+
 		/** Create the widget. */
 		$this->WP_Widget( 'bns-site-data', 'BNS Site Data', $widget_ops, $control_ops );
 
@@ -88,13 +97,12 @@ class BNS_Site_Data_Widget extends WP_Widget {
 			'BNS_Site_Data_Shortcode'
 		) );
 
-	}
-
-	/** End function - bns site data widget */
+	} /** End function - bns site data widget */
 
 
 	/**
 	 * Overrides widget method from WP_Widget class
+	 *
 	 * This is where the work is done
 	 *
 	 * @package  BNS_Site_Data
@@ -112,6 +120,7 @@ class BNS_Site_Data_Widget extends WP_Widget {
 	 * @uses     wp_count_terms
 	 */
 	function widget( $args, $instance ) {
+
 		extract( $args );
 		/** User-selected settings. */
 		$title       = apply_filters( 'widget_title', $instance['title'] );
@@ -187,13 +196,13 @@ class BNS_Site_Data_Widget extends WP_Widget {
 
 		/** @var $after_widget (defined by themes). */
 		echo $after_widget;
-	}
 
-	/** End function - widget method override */
+	} /** End function - widget method override */
 
 
 	/**
 	 * Overrides update method from WP_Widget class
+	 *
 	 * Update a particular instance of the widget.
 	 *
 	 * This function should check that $new_instance is set correctly. The newly
@@ -209,7 +218,9 @@ class BNS_Site_Data_Widget extends WP_Widget {
 	 * @return  array
 	 */
 	function update( $new_instance, $old_instance ) {
+
 		$instance = $old_instance;
+
 		/** Strip tags (if needed) and update the widget settings. */
 		$instance['title']       = strip_tags( $new_instance['title'] );
 		$instance['posts']       = $new_instance['posts'];
@@ -221,13 +232,12 @@ class BNS_Site_Data_Widget extends WP_Widget {
 
 		return $instance;
 
-	}
-
-	/** End function - update override */
+	} /** End function - update override */
 
 
 	/**
 	 * Overrides form method from WP_Widget class
+	 *
 	 * This function displays the widget option panel form used to update the
 	 * widget settings.
 	 *
@@ -236,15 +246,17 @@ class BNS_Site_Data_Widget extends WP_Widget {
 	 *
 	 * @param   array $instance
 	 *
+	 * @uses    BNS_Site_Data_Widget::get_field_id
+	 * @uses    BNS_Site_Data_Widget::get_field_name
 	 * @uses    __
 	 * @uses    _e
 	 * @uses    checked
-	 * @uses    get_field_id
 	 * @uses    wp_parse_args
 	 *
 	 * @return  string|void
 	 */
 	function form( $instance ) {
+
 		/** Set default widget settings. */
 		$defaults = array(
 			'title'       => __( 'Site Data', 'bns-site-data' ),
@@ -310,13 +322,12 @@ class BNS_Site_Data_Widget extends WP_Widget {
 		</p>
 
 	<?php
-	}
-
-	/** End function - form override */
+	} /** End function - form override */
 
 
 	/**
 	 * Enqueue Plugin Scripts and Styles
+	 *
 	 * Adds plugin scripts and stylesheet; allows for custom stylesheet to be added
 	 * by end-user. These stylesheets will only affect public facing output.
 	 *
@@ -342,6 +353,7 @@ class BNS_Site_Data_Widget extends WP_Widget {
 	 * Renamed `BNS_Site_Data_Scripts_and_Styles` to `scripts_and_styles`
 	 */
 	function scripts_and_styles() {
+
 		/** @var $bns_sd_data - holds plugin data */
 		require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 		$bns_sd_data = get_plugin_data( __FILE__ );
@@ -362,13 +374,12 @@ class BNS_Site_Data_Widget extends WP_Widget {
 		}
 		/** End if - is readable */
 
-	}
-
-	/** End function - scripts and styles */
+	} /** End function - scripts and styles */
 
 
 	/**
 	 * Load BNS Site Data Widget
+	 *
 	 * We need to take the widget code (read: the class BNS_Site_Data_Widget that
 	 * extends the WP_Widget class) and register it as a widget.
 	 *
@@ -378,14 +389,15 @@ class BNS_Site_Data_Widget extends WP_Widget {
 	 * @uses    register_widget
 	 */
 	function load_BNS_Site_Data_Widget() {
-		register_widget( 'BNS_Site_Data_Widget' );
-	}
 
-	/** End function - load widget */
+		register_widget( 'BNS_Site_Data_Widget' );
+
+	} /** End function - load widget */
 
 
 	/**
 	 * BNS Site Data Shortcode
+	 *
 	 * Adds shortcode functionality by using the PHP output buffer methods to
 	 * capture `the_widget` output and return the data to be displayed via the use
 	 * of the `bns_site_data` shortcode.
@@ -393,8 +405,9 @@ class BNS_Site_Data_Widget extends WP_Widget {
 	 * @package  BNS_Site_Data
 	 * @since    0.1
 	 *
-	 * @uses     the_widget
+	 * @uses     __
 	 * @uses     shortcode_atts
+	 * @uses     the_widget
 	 *
 	 * @internal used with add_shortcode
 	 *
@@ -454,7 +467,6 @@ class BNS_Site_Data_Widget extends WP_Widget {
 
 	}
 	/** End function - bns site data shortcode */
-
 
 }
 

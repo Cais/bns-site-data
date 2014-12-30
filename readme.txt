@@ -56,7 +56,7 @@ I would recommend creating and using the 'bns-site-data-custom-style.css' styles
 2. The default widget and default shortcode output (using sample data).
 
 == Other Notes ==
-* Copyright 2012-2013  Edward Caissie  (email : edward.caissie@gmail.com)
+* Copyright 2012-2014  Edward Caissie  (email : edward.caissie@gmail.com)
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License version 2,
