@@ -81,7 +81,7 @@ Please stay current with your WordPress installation, your active theme, and you
 
 == Changelog ==
 = 0.4 =
-* Released ...
+* Released December 2014
 * Added `bns-site-data.pot` file for translators
 * Added "in plugin update message"
 * Added WordPress version check for 3.6 with exit messages
