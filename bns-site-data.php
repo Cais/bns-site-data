@@ -61,8 +61,12 @@ class BNS_Site_Data_Widget extends WP_Widget {
 	 * @uses    __
 	 * @uses    add_action
 	 * @uses    add_shortcode
+	 *
+	 * @version 0.4
+	 * @date    December 29, 2014
+	 * Renamed function to `__construct` from `BNS_Site_Data_Widget`
 	 */
-	function BNS_Site_Data_Widget() {
+	function __construct() {
 
 		/**
 		 * Check installed WordPress version for compatibility
