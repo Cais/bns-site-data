@@ -2,9 +2,9 @@
 Contributors: cais
 Donate link: http://buynowshop.com
 Tags: widget-only, site-statistics
-Requires at least: 2.8
-Tested up to: 3.8.1
-Stable tag: 0.3.2
+Requires at least: 3.6
+Tested up to: 4.1
+Stable tag: 0.4
 License: GNU General Public License v2
 License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -80,6 +80,12 @@ I would recommend creating and using the 'bns-site-data-custom-style.css' styles
 Please stay current with your WordPress installation, your active theme, and your plugins.
 
 == Changelog ==
+= 0.4 =
+* Released ...
+* Added `bns-site-data.pot` file for translators
+* Changed `bns-sd` text domain to `bns-site-data`
+* Updates to code formatting to better meet WordPress Coding Standards
+
 = 0.3.2 =
 * Released September 2013
 * Added third parameter to `shortcode_atts` for automatic filter creation

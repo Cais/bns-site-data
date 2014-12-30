@@ -3,10 +3,10 @@
 Plugin Name: BNS Site Data
 Plugin URI: http://buynowshop.com/plugins/
 Description: Show some basic site statistics.
-Version: 0.3.2
+Version: 0.4
 Author: Edward Caissie
 Author URI: http://edwardcaissie.com/
-Text Domain: bns-sd
+Text Domain: bns-site-data
 License: GNU General Public License v2
 License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 */
@@ -21,9 +21,9 @@ License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  * @link        http://buynowshop.com/plugins/bns-site-data
  * @link        https://github.com/Cais/bns-site-data
  * @link        http://wordpress.org/extend/plugins/bns-site-data
- * @version     0.3.2
+ * @version     0.4
  * @author      Edward Caissie <edward.caissie@gmail.com>
- * @copyright   Copyright (c) 2012-2013, Edward Caissie
+ * @copyright   Copyright (c) 2012-2014, Edward Caissie
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License version 2, as published by the
@@ -44,21 +44,7 @@ License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  *
  * The license for this software can also likely be found here:
  * http://www.gnu.org/licenses/gpl-2.0.html
- *
- * @version     0.3
- * @date        February 13, 2013
- * Moved all code into class structure
- * Added code block termination comments
- *
- * @version     0.3.1
- * @date        May 14, 2013
- * Version number compatibility update
- *
- * @version     0.3.2
- * @date        September 7, 2013
- * Added third parameter to `shortcode_atts` for automatic filter creation
  */
-
 class BNS_Site_Data_Widget extends WP_Widget {
 
 	/**
@@ -72,23 +58,35 @@ class BNS_Site_Data_Widget extends WP_Widget {
 	 */
 	function BNS_Site_Data_Widget() {
 		/** Widget settings. */
-		$widget_ops = array( 'classname' => 'bns-site-data', 'description' => __( 'Displays some site stuff.', 'bns-sd' ) );
+		$widget_ops = array(
+			'classname'   => 'bns-site-data',
+			'description' => __( 'Displays some site stuff.', 'bns-site-data' )
+		);
 		/** Widget control settings. */
 		$control_ops = array( 'width' => 200, 'id_base' => 'bns-site-data' );
 		/** Create the widget. */
 		$this->WP_Widget( 'bns-site-data', 'BNS Site Data', $widget_ops, $control_ops );
 
 		/** End: Enqueue Plugin Scripts and Styles */
-		add_action( 'wp_enqueue_scripts', array( $this, 'scripts_and_styles' ) );
+		add_action( 'wp_enqueue_scripts', array(
+			$this,
+			'scripts_and_styles'
+		) );
 
 		/**
 		 * Once the widget is registered it can be added/loaded during the
 		 * widget initialization via an action hook.
 		 */
-		add_action( 'widgets_init', array( $this, 'load_BNS_Site_Data_Widget' ) );
+		add_action( 'widgets_init', array(
+			$this,
+			'load_BNS_Site_Data_Widget'
+		) );
 
 		/** Add Shortcode */
-		add_shortcode( 'bns_site_data', array( $this, 'BNS_Site_Data_Shortcode' ) );
+		add_shortcode( 'bns_site_data', array(
+			$this,
+			'BNS_Site_Data_Shortcode'
+		) );
 
 	}
 
@@ -249,7 +247,7 @@ class BNS_Site_Data_Widget extends WP_Widget {
 	function form( $instance ) {
 		/** Set default widget settings. */
 		$defaults = array(
-			'title'       => __( 'Site Data', 'bns-sd' ),
+			'title'       => __( 'Site Data', 'bns-site-data' ),
 			'posts'       => true,
 			'pages'       => true,
 			'cats'        => true,
@@ -260,38 +258,55 @@ class BNS_Site_Data_Widget extends WP_Widget {
 		$instance = wp_parse_args( (array) $instance, $defaults ); ?>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'bns-sd' ); ?></label>
-			<input id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo $instance['title']; ?>" style="width:100%;" />
+			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'bns-site-data' ); ?></label>
+			<input id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>"
+			       value="<?php echo $instance['title']; ?>" style="width:100%;" />
 		</p>
 
 		<p>
-			<input class="checkbox" type="checkbox" <?php checked( (bool) $instance['posts'], true ); ?> id="<?php echo $this->get_field_id( 'posts' ); ?>" name="<?php echo $this->get_field_name( 'posts' ); ?>" />
-			<label for="<?php echo $this->get_field_id( 'posts' ); ?>"><?php _e( 'Show your posts count?', 'bns-sd' ); ?></label>
+			<input class="checkbox" type="checkbox" <?php checked( (bool) $instance['posts'], true ); ?>
+			       id="<?php echo $this->get_field_id( 'posts' ); ?>"
+			       name="<?php echo $this->get_field_name( 'posts' ); ?>" />
+			<label
+				for="<?php echo $this->get_field_id( 'posts' ); ?>"><?php _e( 'Show your posts count?', 'bns-site-data' ); ?></label>
 		</p>
 
 		<p>
-			<input class="checkbox" type="checkbox" <?php checked( (bool) $instance['pages'], true ); ?> id="<?php echo $this->get_field_id( 'pages' ); ?>" name="<?php echo $this->get_field_name( 'pages' ); ?>" />
-			<label for="<?php echo $this->get_field_id( 'pages' ); ?>"><?php _e( 'Show your pages count?', 'bns-sd' ); ?></label>
+			<input class="checkbox" type="checkbox" <?php checked( (bool) $instance['pages'], true ); ?>
+			       id="<?php echo $this->get_field_id( 'pages' ); ?>"
+			       name="<?php echo $this->get_field_name( 'pages' ); ?>" />
+			<label
+				for="<?php echo $this->get_field_id( 'pages' ); ?>"><?php _e( 'Show your pages count?', 'bns-site-data' ); ?></label>
 		</p>
 
 		<p>
-			<input class="checkbox" type="checkbox" <?php checked( (bool) $instance['cats'], true ); ?> id="<?php echo $this->get_field_id( 'cats' ); ?>" name="<?php echo $this->get_field_name( 'cats' ); ?>" />
-			<label for="<?php echo $this->get_field_id( 'cats' ); ?>"><?php _e( 'Show your categories count?', 'bns-sd' ); ?></label>
+			<input class="checkbox" type="checkbox" <?php checked( (bool) $instance['cats'], true ); ?>
+			       id="<?php echo $this->get_field_id( 'cats' ); ?>" name="<?php echo $this->get_field_name( 'cats' ); ?>" />
+			<label
+				for="<?php echo $this->get_field_id( 'cats' ); ?>"><?php _e( 'Show your categories count?', 'bns-site-data' ); ?></label>
 		</p>
 
 		<p>
-			<input class="checkbox" type="checkbox" <?php checked( (bool) $instance['tags'], true ); ?> id="<?php echo $this->get_field_id( 'tags' ); ?>" name="<?php echo $this->get_field_name( 'tags' ); ?>" />
-			<label for="<?php echo $this->get_field_id( 'tags' ); ?>"><?php _e( 'Show your tags count?', 'bns-sd' ); ?></label>
+			<input class="checkbox" type="checkbox" <?php checked( (bool) $instance['tags'], true ); ?>
+			       id="<?php echo $this->get_field_id( 'tags' ); ?>" name="<?php echo $this->get_field_name( 'tags' ); ?>" />
+			<label
+				for="<?php echo $this->get_field_id( 'tags' ); ?>"><?php _e( 'Show your tags count?', 'bns-site-data' ); ?></label>
 		</p>
 
 		<p>
-			<input class="checkbox" type="checkbox" <?php checked( (bool) $instance['comments'], true ); ?> id="<?php echo $this->get_field_id( 'comments' ); ?>" name="<?php echo $this->get_field_name( 'comments' ); ?>" />
-			<label for="<?php echo $this->get_field_id( 'comments' ); ?>"><?php _e( 'Show your comments count?', 'bns-sd' ); ?></label>
+			<input class="checkbox" type="checkbox" <?php checked( (bool) $instance['comments'], true ); ?>
+			       id="<?php echo $this->get_field_id( 'comments' ); ?>"
+			       name="<?php echo $this->get_field_name( 'comments' ); ?>" />
+			<label
+				for="<?php echo $this->get_field_id( 'comments' ); ?>"><?php _e( 'Show your comments count?', 'bns-site-data' ); ?></label>
 		</p>
 
 		<p>
-			<input class="checkbox" type="checkbox" <?php checked( (bool) $instance['attachments'], true ); ?> id="<?php echo $this->get_field_id( 'attachments' ); ?>" name="<?php echo $this->get_field_name( 'attachments' ); ?>" />
-			<label for="<?php echo $this->get_field_id( 'attachments' ); ?>"><?php _e( 'Show your attachments count?', 'bns-sd' ); ?></label>
+			<input class="checkbox" type="checkbox" <?php checked( (bool) $instance['attachments'], true ); ?>
+			       id="<?php echo $this->get_field_id( 'attachments' ); ?>"
+			       name="<?php echo $this->get_field_name( 'attachments' ); ?>" />
+			<label
+				for="<?php echo $this->get_field_id( 'attachments' ); ?>"><?php _e( 'Show your attachments count?', 'bns-site-data' ); ?></label>
 		</p>
 
 	<?php
@@ -407,7 +422,7 @@ class BNS_Site_Data_Widget extends WP_Widget {
 				$instance = shortcode_atts(
 					array(
 						/** Set title to null for aesthetic reasons */
-						'title'       => __( '', 'bns-sd' ),
+						'title'       => __( '', 'bns-site-data' ),
 						'posts'       => true,
 						'pages'       => true,
 						'cats'        => true,

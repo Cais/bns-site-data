@@ -2,7 +2,7 @@
  * This file is part of BNS Site Data Widget
  * Last revised at version 0.3.1
  *
- * Copyright 2012-2013  Edward Caissie  (email : edward.caissie@gmail.com)
+ * Copyright 2012-2014  Edward Caissie  (email : edward.caissie@gmail.com)
  *
  * BNS Site Data Widget is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License, version 2, as published
@@ -30,31 +30,31 @@
 /** Rounded border around widget and white background */
 li.bns-site-data,
 div.bns-site-data-shortcode {
-	border: 1px solid #000000;
-	border-radius: 5px;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	list-style-position: inside;
-	padding: 10px 10px 10px 20px;
-	background-color: #ffffff;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    list-style-position: inside;
+    padding: 10px 10px 10px 20px;
+    background-color: #ffffff;
 }
 
 .widget.bns-site-data {
-	border: none;
-	padding: 0;
+    border: none;
+    padding: 0;
 }
 
 /** Font color */
 ul.bns-site-data-list li {
-	color: #000000;
+    color: #000000;
 }
 
 /** Stripe color */
 ul.bns-site-data-list li.stripe {
-	background: #d3d3d3; /** lightgrey */
+    background: #d3d3d3; /** lightgrey */
 }
 
 /** Make sure the shortcode output does not easily slip under anything */
 .bns-site-data-shortcode {
-	clear: both;
+    clear: both;
 }
