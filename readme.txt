@@ -86,6 +86,7 @@ Please stay current with your WordPress installation, your active theme, and you
 * Added "in plugin update message"
 * Added WordPress version check for 3.6 with exit messages
 * Changed `bns-sd` text domain to `bns-site-data`
+* Improved i18n implementation on output labels
 * Renamed function to `__construct` from `BNS_Site_Data_Widget`
 * Updates to code formatting to better meet WordPress Coding Standards
 

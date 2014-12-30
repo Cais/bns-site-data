@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the BNS Site Data package.
 msgid ""
 msgstr ""
-"Project-Id-Version: BNS Site Data 0.3.2\n"
+"Project-Id-Version: BNS Site Data 0.4\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/bns-site-data\n"
-"POT-Creation-Date: 2014-12-30 02:23:01+00:00\n"
+"POT-Creation-Date: 2014-12-30 03:51:52+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,39 +12,91 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: bns-site-data.php:75
+#: bns-site-data.php:78
+msgid "BNS Site Data requires WordPress version 3.6 or newer. %1$s"
+msgstr ""
+
+#: bns-site-data.php:78
+msgid "Please Update!"
+msgstr ""
+
+#: bns-site-data.php:80
+msgid "In reference to the shortcode default attributes filter. See %1$s."
+msgstr ""
+
+#: bns-site-data.php:80
+msgid "this link"
+msgstr ""
+
+#: bns-site-data.php:89
 msgid "Displays some site stuff."
 msgstr ""
 
-#: bns-site-data.php:238
+#: bns-site-data.php:213
+msgid "Post"
+msgid_plural "Posts"
+msgstr[0] ""
+msgstr[1] ""
+
+#: bns-site-data.php:215
+msgid "Page"
+msgid_plural "Pages"
+msgstr[0] ""
+msgstr[1] ""
+
+#: bns-site-data.php:217
+msgid "Category"
+msgid_plural "Categories"
+msgstr[0] ""
+msgstr[1] ""
+
+#: bns-site-data.php:219
+msgid "Tag"
+msgid_plural "Tags"
+msgstr[0] ""
+msgstr[1] ""
+
+#: bns-site-data.php:221
+msgid "Comment"
+msgid_plural "Comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: bns-site-data.php:223
+msgid "Attachment"
+msgid_plural "Attachments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: bns-site-data.php:306
 msgid "Site Data"
 msgstr ""
 
-#: bns-site-data.php:249
+#: bns-site-data.php:317
 msgid "Title:"
 msgstr ""
 
-#: bns-site-data.php:255
+#: bns-site-data.php:327
 msgid "Show your posts count?"
 msgstr ""
 
-#: bns-site-data.php:260
+#: bns-site-data.php:335
 msgid "Show your pages count?"
 msgstr ""
 
-#: bns-site-data.php:265
+#: bns-site-data.php:342
 msgid "Show your categories count?"
 msgstr ""
 
-#: bns-site-data.php:270
+#: bns-site-data.php:349
 msgid "Show your tags count?"
 msgstr ""
 
-#: bns-site-data.php:275
+#: bns-site-data.php:357
 msgid "Show your comments count?"
 msgstr ""
 
-#: bns-site-data.php:280
+#: bns-site-data.php:365
 msgid "Show your attachments count?"
 msgstr ""
 

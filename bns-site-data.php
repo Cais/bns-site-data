@@ -133,10 +133,15 @@ class BNS_Site_Data_Widget extends WP_Widget {
 	 * @internal $args vars are either drawn from the theme register_sidebar
 	 * definition, or are drawn from the defaults in WordPress core.
 	 *
+	 * @uses    _n
 	 * @uses     apply_filters
 	 * @uses     wp_count_comments
 	 * @uses     wp_count_posts
 	 * @uses     wp_count_terms
+	 *
+	 * @version 0.4
+	 * @date    December 29, 2014
+	 * Improved i18n implementation on output labels
 	 */
 	function widget( $args, $instance ) {
 
@@ -200,12 +205,32 @@ class BNS_Site_Data_Widget extends WP_Widget {
 		 * say Mallory-Everest?!
 		 */
 		foreach ( $data as $label => $value ) {
+
+			$display_label = null;
+
+			/** Use conditional checks to ensure a translatable label is used */
+			if ( 'Posts' == $label ) {
+				$display_label = _n( 'Post', 'Posts', $value, 'bns-site-data' );
+			} elseif ( 'Pages' == $label ) {
+				$display_label = _n( 'Page', 'Pages', $value, 'bns-site-data' );
+			} elseif ( 'Categories' == $label ) {
+				$display_label = _n( 'Category', 'Categories', $value, 'bns-site-data' );
+			} elseif ( 'Tags' == $label ) {
+				$display_label = _n( 'Tag', 'Tags', $value, 'bns-site-data' );
+			} elseif ( 'Comments' == $label ) {
+				$display_label = _n( 'Comment', 'Comments', $value, 'bns-site-data' );
+			} elseif ( 'Attachments' == $label ) {
+				$display_label = _n( 'Attachment', 'Attachments', $value, 'bns-site-data' );
+			}
+			/** End if - label setting conditionals */
+
 			$output .= apply_filters(
 				'bns_site_data_' . strtolower( $label ),
-				'<li class="bns-site-data-' . strtolower( $label ) . '">' . number_format( $value ) . ' ' . $label . '</li>'
+				sprintf( '<li class="bns-site-data-' . strtolower( $label ) . '">%1$s %2$s</li>', number_format( $value ), $display_label )
 			);
+
 		}
-		/** End for - data as label value */
+		/** End foreach - data as label value */
 
 		/** Close the list */
 		$output .= '</ul>';
@@ -612,8 +637,10 @@ function BNS_Site_Data_in_plugin_update_message( $args ) {
 
 	echo $upgrade_notice;
 
-} /** End function - in plugin update message */
+}
+
+/** End function - in plugin update message */
 
 
 /** Add Plugin Update Message */
-add_action( 'in_plugin_update_message-' . plugin_basename( __FILE__ ),  'BNS_Site_Data_in_plugin_update_message' );
+add_action( 'in_plugin_update_message-' . plugin_basename( __FILE__ ), 'BNS_Site_Data_in_plugin_update_message' );
