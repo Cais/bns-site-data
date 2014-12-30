@@ -83,6 +83,7 @@ Please stay current with your WordPress installation, your active theme, and you
 = 0.4 =
 * Released ...
 * Added `bns-site-data.pot` file for translators
+* Added "in plugin update message"
 * Changed `bns-sd` text domain to `bns-site-data`
 * Updates to code formatting to better meet WordPress Coding Standards
 
