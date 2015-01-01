@@ -3,7 +3,7 @@
 Plugin Name: BNS Site Data
 Plugin URI: http://buynowshop.com/plugins/
 Description: Show some basic site statistics.
-Version: 0.4
+Version: 0.4.1
 Author: Edward Caissie
 Author URI: http://edwardcaissie.com/
 Text Domain: bns-site-data
@@ -22,7 +22,7 @@ License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  * @link        http://buynowshop.com/plugins/bns-site-data
  * @link        https://github.com/Cais/bns-site-data
  * @link        http://wordpress.org/plugins/bns-site-data
- * @version     0.4
+ * @version     0.4.1
  * @author      Edward Caissie <edward.caissie@gmail.com>
  * @copyright   Copyright (c) 2012-2014, Edward Caissie
  *
@@ -116,6 +116,11 @@ class BNS_Site_Data_Widget extends WP_Widget {
 			'BNS_Site_Data_Shortcode'
 		) );
 
+		add_action( 'plugins_loaded', array(
+			$this,
+			'bnssd_load_plugin_textdomain'
+		) );
+
 	} /** End function - bns site data widget */
 
 
@@ -133,14 +138,14 @@ class BNS_Site_Data_Widget extends WP_Widget {
 	 * @internal $args vars are either drawn from the theme register_sidebar
 	 * definition, or are drawn from the defaults in WordPress core.
 	 *
-	 * @uses    _n
+	 * @uses     _n
 	 * @uses     apply_filters
 	 * @uses     wp_count_comments
 	 * @uses     wp_count_posts
 	 * @uses     wp_count_terms
 	 *
-	 * @version 0.4
-	 * @date    December 29, 2014
+	 * @version  0.4
+	 * @date     December 29, 2014
 	 * Improved i18n implementation on output labels
 	 */
 	function widget( $args, $instance ) {
@@ -515,6 +520,22 @@ class BNS_Site_Data_Widget extends WP_Widget {
 
 	}
 	/** End function - bns site data shortcode */
+
+
+	/**
+	 * Load Plugin Text Domain
+	 *
+	 * @package BNS_Site_Data
+	 * @since   0.4.1
+	 *
+	 * @uses    load_plugin_textdomain
+	 */
+	function bnssd_load_plugin_textdomain() {
+
+		load_plugin_textdomain( 'bns-site-data' );
+
+	}
+	/** End function - load plugin textdomain */
 
 }
 

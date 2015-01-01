@@ -80,6 +80,10 @@ I would recommend creating and using the 'bns-site-data-custom-style.css' styles
 Please stay current with your WordPress installation, your active theme, and your plugins.
 
 == Changelog ==
+= 0.4.1 =
+* Released New Year's Eve 2014
+* Specifically add function to load plugin textdomain
+
 = 0.4 =
 * Released December 2014
 * Added `bns-site-data.pot` file for translators
