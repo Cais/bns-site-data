@@ -147,6 +147,10 @@ class BNS_Site_Data_Widget extends WP_Widget {
 	 * @version  0.4
 	 * @date     December 29, 2014
 	 * Improved i18n implementation on output labels
+	 *
+	 * @version  0.4.2
+	 * @date     January 1, 2015
+	 * Ensure `$value` is being used as an integer in i18n implementation
 	 */
 	function widget( $args, $instance ) {
 
@@ -215,17 +219,17 @@ class BNS_Site_Data_Widget extends WP_Widget {
 
 			/** Use conditional checks to ensure a translatable label is used */
 			if ( 'Posts' == $label ) {
-				$display_label = _n( 'Post', 'Posts', $value, 'bns-site-data' );
+				$display_label = _n( 'Post', 'Posts', intval( $value ), 'bns-site-data' );
 			} elseif ( 'Pages' == $label ) {
-				$display_label = _n( 'Page', 'Pages', $value, 'bns-site-data' );
+				$display_label = _n( 'Page', 'Pages', intval( $value ), 'bns-site-data' );
 			} elseif ( 'Categories' == $label ) {
-				$display_label = _n( 'Category', 'Categories', $value, 'bns-site-data' );
+				$display_label = _n( 'Category', 'Categories', intval( $value ), 'bns-site-data' );
 			} elseif ( 'Tags' == $label ) {
-				$display_label = _n( 'Tag', 'Tags', $value, 'bns-site-data' );
+				$display_label = _n( 'Tag', 'Tags', intval( $value ), 'bns-site-data' );
 			} elseif ( 'Comments' == $label ) {
-				$display_label = _n( 'Comment', 'Comments', $value, 'bns-site-data' );
+				$display_label = _n( 'Comment', 'Comments', intval( $value ), 'bns-site-data' );
 			} elseif ( 'Attachments' == $label ) {
-				$display_label = _n( 'Attachment', 'Attachments', $value, 'bns-site-data' );
+				$display_label = _n( 'Attachment', 'Attachments', intval( $value ), 'bns-site-data' );
 			}
 			/** End if - label setting conditionals */
 
