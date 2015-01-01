@@ -1,4 +1,4 @@
-# Copyright (C) 2014 BNS Site Data
+# Copyright (C) 2014-2015 BNS Site Data
 # This file is distributed under the same license as the BNS Site Data package.
 msgid ""
 msgstr ""

@@ -4,7 +4,7 @@ Donate link: http://buynowshop.com
 Tags: widget-only, site-statistics
 Requires at least: 3.6
 Tested up to: 4.1
-Stable tag: 0.4.1
+Stable tag: 0.4.2
 License: GNU General Public License v2
 License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -56,7 +56,7 @@ I would recommend creating and using the 'bns-site-data-custom-style.css' styles
 2. The default widget and default shortcode output (using sample data).
 
 == Other Notes ==
-* Copyright 2012-2014  Edward Caissie  (email : edward.caissie@gmail.com)
+* Copyright 2012-2015  Edward Caissie  (email : edward.caissie@gmail.com)
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License version 2,
@@ -80,6 +80,10 @@ I would recommend creating and using the 'bns-site-data-custom-style.css' styles
 Please stay current with your WordPress installation, your active theme, and your plugins.
 
 == Changelog ==
+= 0.4.2 =
+* Released New Year's Day 2015
+* Ensure `$value` is being used as an integer in i18n implementation
+
 = 0.4.1 =
 * Released New Year's Eve 2014
 * Specifically add function to load plugin textdomain
