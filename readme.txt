@@ -3,8 +3,8 @@ Contributors: cais
 Donate link: http://buynowshop.com
 Tags: widget-only, site-statistics
 Requires at least: 3.6
-Tested up to: 4.1
-Stable tag: 0.4.2
+Tested up to: 4.2.2
+Stable tag: 0.4.3
 License: GNU General Public License v2
 License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -80,6 +80,10 @@ I would recommend creating and using the 'bns-site-data-custom-style.css' styles
 Please stay current with your WordPress installation, your active theme, and your plugins.
 
 == Changelog ==
+= 0.4.3 =
+* Released ...
+* Updated to use PHP5 constructor objects
+
 = 0.4.2 =
 * Released New Year's Day 2015
 * Ensure `$value` is being used as an integer in i18n implementation

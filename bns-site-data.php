@@ -3,7 +3,7 @@
 Plugin Name: BNS Site Data
 Plugin URI: http://buynowshop.com/plugins/
 Description: Show some basic site statistics.
-Version: 0.4.2
+Version: 0.4.3
 Author: Edward Caissie
 Author URI: http://edwardcaissie.com/
 Text Domain: bns-site-data
@@ -21,8 +21,8 @@ License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  * @package     BNS_Site_Data
  * @link        http://buynowshop.com/plugins/bns-site-data
  * @link        https://github.com/Cais/bns-site-data
- * @link        http://wordpress.org/plugins/bns-site-data
- * @version     0.4.2
+ * @link        https://wordpress.org/plugins/bns-site-data
+ * @version     0.4.3
  * @author      Edward Caissie <edward.caissie@gmail.com>
  * @copyright   Copyright (c) 2012-2015, Edward Caissie
  *
@@ -45,6 +45,9 @@ License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  *
  * The license for this software can also likely be found here:
  * http://www.gnu.org/licenses/gpl-2.0.html
+ *
+ * @version 0.4.3
+ * @date    July 2015
  */
 class BNS_Site_Data_Widget extends WP_Widget {
 
@@ -93,7 +96,7 @@ class BNS_Site_Data_Widget extends WP_Widget {
 		$control_ops = array( 'width' => 200, 'id_base' => 'bns-site-data' );
 
 		/** Create the widget. */
-		$this->WP_Widget( 'bns-site-data', 'BNS Site Data', $widget_ops, $control_ops );
+		parent::__construct( 'bns-site-data', 'BNS Site Data', $widget_ops, $control_ops );
 
 		/** End: Enqueue Plugin Scripts and Styles */
 		add_action( 'wp_enqueue_scripts', array(
