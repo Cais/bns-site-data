@@ -3,7 +3,7 @@ Contributors: cais
 Donate link: http://buynowshop.com
 Tags: widget-only, site-statistics
 Requires at least: 3.6
-Tested up to: 4.2.2
+Tested up to: 4.3
 Stable tag: 0.4.3
 License: GNU General Public License v2
 License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -81,7 +81,7 @@ Please stay current with your WordPress installation, your active theme, and you
 
 == Changelog ==
 = 0.4.3 =
-* Released ...
+* Released August 2015
 * Updated to use PHP5 constructor objects
 
 = 0.4.2 =
